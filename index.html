@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Heaven Hub — Pixel Console (v2)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="theme-1">
+  <main class="wrap">
+    <section class="shell" role="group" aria-label="GameBoy shell">
+      <div class="screen-frame">
+        <div class="screen-inner">
+          <header class="title">
+            <h1>HEAVEN HUB</h1>
+            <p class="subtitle">CHOOSE WHERE YOU WANT TO GO WITH ME...</p>
+          </header>
+
+          <!-- PIXEL SCENE -->
+          <div class="pixel-wrap">
+            <!-- Drawn at 160×144 (GB resolution) for 1:1 look -->
+            <svg class="pixel-svg" viewBox="0 0 160 144" shape-rendering="crispEdges">
+              <!-- sky -->
+              <rect x="0" y="0" width="160" height="144" class="c-sky"/>
+              <!-- stars (plus-shaped) -->
+              <g class="c-stars">
+                <g transform="translate(18,26)"><rect x="0" y="1" width="3" height="1"/><rect x="1" y="0" width="1" height="3"/></g>
+                <g transform="translate(38,18)"><rect x="0" y="1" width="3" height="1"/><rect x="1" y="0" width="1" height="3"/></g>
+                <g transform="translate(66,14)"><rect x="0" y="1" width="3" height="1"/><rect x="1" y="0" width="1" height="3"/></g>
+                <g transform="translate(92,20)"><rect x="0" y="1" width="3" height="1"/><rect x="1" y="0" width="1" height="3"/></g>
+                <g transform="translate(122,26)"><rect x="0" y="1" width="3" height="1"/><rect x="1" y="0" width="1" height="3"/></g>
+                <g transform="translate(140,40)"><rect x="0" y="1" width="3" height="1"/><rect x="1" y="0" width="1" height="3"/></g>
+              </g>
+              <!-- moon (crescent) -->
+              <g class="c-moon">
+                <rect x="130" y="30" width="8" height="8"/>
+                <rect x="136" y="30" width="3" height="8" class="c-sky"/>
+                <rect x="130" y="36" width="6" height="3"/>
+                <rect x="135" y="36" width="2" height="3" class="c-sky"/>
+              </g>
+              <!-- clouds -->
+              <g class="c-clouds">
+                <rect x="0" y="66" width="42" height="12"/>
+                <rect x="36" y="70" width="28" height="9"/>
+                <rect x="70" y="62" width="40" height="16"/>
+                <rect x="110" y="70" width="50" height="10"/>
+              </g>
+              <!-- ground -->
+              <rect x="0" y="84" width="160" height="6" class="c-ground"/>
+              <!-- couple -->
+              <!-- girl -->
+              <g class="sprite girl" transform="translate(56,54)">
+                <!-- hair -->
+                <rect x="2" y="0" width="8" height="6"/>
+                <rect x="0" y="3" width="3" height="6"/>
+                <!-- face -->
+                <rect x="4" y="6" width="6" height="5" class="c-face"/>
+                <!-- crown -->
+                <rect x="5" y="-2" width="4" height="1" class="c-crown"/>
+                <rect x="4" y="-1" width="1" height="1" class="c-crown"/>
+                <rect x="9" y="-1" width="1" height="1" class="c-crown"/>
+                <!-- body -->
+                <rect x="4" y="11" width="6" height="8"/>
+                <!-- arm toward boy -->
+                <rect x="9" y="13" width="5" height="2"/>
+                <!-- dress hem & legs -->
+                <rect x="3" y="19" width="8" height="3"/>
+                <rect x="4" y="22" width="2" height="4"/>
+                <rect x="9" y="22" width="2" height="4"/>
+              </g>
+              <!-- boy -->
+              <g class="sprite boy" transform="translate(90,54)">
+                <!-- hair -->
+                <rect x="1" y="0" width="10" height="6"/>
+                <rect x="0" y="2" width="2" height="5"/>
+                <!-- face -->
+                <rect x="4" y="6" width="6" height="5" class="c-face"/>
+                <!-- body -->
+                <rect x="4" y="11" width="6" height="8"/>
+                <!-- arm reaching -->
+                <rect x="-5" y="13" width="9" height="2"/>
+                <!-- pants/legs -->
+                <rect x="3" y="19" width="8" height="3"/>
+                <rect x="4" y="22" width="2" height="4"/>
+                <rect x="9" y="22" width="2" height="4"/>
+              </g>
+              <!-- hands meet -->
+              <rect x="84" y="67" width="3" height="2"/>
+            </svg>
+          </div>
+
+          <!-- MENU -->
+          <nav id="menu" class="menu" aria-label="Main menu">
+            <button class="tile" data-modal="movies"><span>MOVIES TOGETHER</span></button>
+            <button class="tile" data-modal="playlist"><span>PLAYLIST</span></button>
+            <button class="tile" data-modal="mornings"><span>MORNING MESSAGES</span></button>
+            <button class="tile" data-modal="journey"><span>HEAVEN JOURNEY</span></button>
+          </nav>
+        </div>
+      </div>
+
+      <!-- controls row -->
+      <div class="controls">
+        <div class="dpad" aria-label="D-pad">
+          <button class="d d-up" aria-label="Up"></button>
+          <button class="d d-left" aria-label="Left"></button>
+          <button class="d d-right" aria-label="Right"></button>
+          <button class="d d-down" aria-label="Down"></button>
+          <div class="d-center" aria-hidden="true"></div>
+        </div>
+        <div class="mid-buttons">
+          <button id="selectBtn" class="pill" aria-label="SELECT">SELECT</button>
+          <button id="startBtn" class="pill" aria-label="START">START</button>
+        </div>
+        <div class="ab">
+          <button id="aBtn" class="round" aria-label="A">A</button>
+          <button id="bBtn" class="round" aria-label="B">B</button>
+        </div>
+      </div>
+
+      <div class="speaker" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+    </section>
+  </main>
+
+  <!-- OVERLAY + MODALS -->
+  <div id="overlay" class="overlay" hidden></div>
+
+  <dialog id="modal-movies" class="modal" aria-label="Movies Together">
+    <h2>🎬 Movies Together</h2>
+    <p>Use this hub to launch a room, streaming link, or synced player.</p>
+    <button class="close">Close</button>
+  </dialog>
+
+  <dialog id="modal-playlist" class="modal" aria-label="Playlist">
+    <h2>🎵 Playlist</h2>
+    <p>Paste Spotify or YouTube links and pin your favorites.</p>
+    <button class="close">Close</button>
+  </dialog>
+
+  <dialog id="modal-mornings" class="modal" aria-label="Morning Messages">
+    <h2>🌤️ Morning Messages</h2>
+    <p>Write scheduled notes or save daily prompts.</p>
+    <button class="close">Close</button>
+  </dialog>
+
+  <dialog id="modal-journey" class="modal" aria-label="Heaven Journey">
+    <h2>🌙 Heaven Journey</h2>
+    <p>Timeline of milestones, photos, and future plans.</p>
+    <button class="close">Close</button>
+  </dialog>
+
+  <script src="script.js"></script>
+</body>
+</html>
